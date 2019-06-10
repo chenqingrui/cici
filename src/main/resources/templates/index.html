@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"><head>
+<head>
+<meta charset="UTF-8">
+<title>welcome page</title>
+<style>
+	ul li{
+		list-style:none;
+	}
+</style>
+</head>
+<body>
+   <form accept-charset="utf-8" action="/user/login" method="post"  id="user-form">
+     <ul>
+       <li>
+           <label>用户名：</label>
+           <div>
+             <input type="text" id="userName" name="userName"  maxlength="16" />
+           </div>
+       </li>
+       <li>
+          <label>密码：</label>
+           <div>
+             <input type="password" id="password"  name="password"  maxlength="16"/>
+           </div>
+       </li>
+       <li>
+               <div>
+					<input type="submit" value="登录"/>
+					<input type="button" value="注册" id="register-btn" onclick="register()">
+				</div>
+       </li>
+     </ul>
+   </form>
+  <p th:text="${msg}"></p>
+   <script type="text/javascript">
+   function register() {
+       var userForm = document.getElementById("user-form");
+       userForm.setAttribute("action", "/user/register");
+       userForm.submit();
+   }
+   </script>
+</body>
+</html>
